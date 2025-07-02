@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React from "react";
 
-export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+const Navbar = () => {
+  const toggleMobileMenu = () => {
+    const menu = document.getElementById("mobile-menu");
+    if (menu) menu.classList.toggle("hidden");
+  };
 
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
@@ -20,22 +23,23 @@ export default function Navbar() {
             <a href="#contact" className="text-gray-900 hover:text-green-600 px-3 py-2 text-sm font-medium">Contact</a>
           </div>
           <div className="md:hidden flex items-center">
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="text-gray-900 hover:text-green-600">
+            <button onClick={toggleMobileMenu} className="text-gray-900 hover:text-green-600">
               <i className="fas fa-bars text-xl"></i>
             </button>
           </div>
         </div>
       </div>
-      {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <a href="#home" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-green-600">Home</a>
-            <a href="#services" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-green-600">Services</a>
-            <a href="#booking" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-green-600">Book Now</a>
-            <a href="#contact" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-green-600">Contact</a>
-          </div>
+
+      <div id="mobile-menu" className="hidden md:hidden bg-white border-t border-gray-200">
+        <div className="px-2 pt-2 pb-3 space-y-1">
+          <a href="#home" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-green-600">Home</a>
+          <a href="#services" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-green-600">Services</a>
+          <a href="#booking" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-green-600">Book Now</a>
+          <a href="#contact" className="block px-3 py-2 text-base font-medium text-gray-900 hover:text-green-600">Contact</a>
         </div>
-      )}
+      </div>
     </nav>
   );
-}
+};
+
+export default Navbar;

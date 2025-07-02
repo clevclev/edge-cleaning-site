@@ -39,7 +39,37 @@ function App() {
     <div className="font-sans bg-gray-50">
         {/* Navigation Bar */}
         <nav className="bg-white shadow-lg sticky top-0 z-50">
-          {/* ... your existing nav content ... */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              <div className="flex items-center">
+                <span className="text-xl font-bold text-green-600">Edge Cleaning</span>
+              </div>
+              <div className="hidden md:flex space-x-4">
+                <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className="text-gray-700 hover:text-green-600">Home</a>
+                <a href="#services" onClick={(e) => scrollToSection(e, '#services')} className="text-gray-700 hover:text-green-600">Services</a>
+                <a href="#booking" onClick={(e) => scrollToSection(e, '#booking')} className="text-gray-700 hover:text-green-600">Book Now</a>
+                <a href="#contact" onClick={(e) => scrollToSection(e, '#contact')} className="text-gray-700 hover:text-green-600">Contact</a>
+              </div>
+              {/* Mobile menu button */}
+              <div className="md:hidden">
+                <button
+                  onClick={toggleMobileMenu}
+                  className="text-gray-700 hover:text-green-600 focus:outline-none"
+                >
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          {/* Mobile menu dropdown */}
+          <div id="mobile-menu" className="hidden md:hidden px-4 pb-4">
+            <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className="block py-2 text-gray-700 hover:text-green-600">Home</a>
+            <a href="#services" onClick={(e) => scrollToSection(e, '#services')} className="block py-2 text-gray-700 hover:text-green-600">Services</a>
+            <a href="#booking" onClick={(e) => scrollToSection(e, '#booking')} className="block py-2 text-gray-700 hover:text-green-600">Book Now</a>
+            <a href="#contact" onClick={(e) => scrollToSection(e, '#contact')} className="block py-2 text-gray-700 hover:text-green-600">Contact</a>
+          </div>
         </nav>
 
         {/* Success message */}
